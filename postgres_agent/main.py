@@ -4,12 +4,12 @@ from postgres_agent.modules import llm
 import dotenv
 import argparse
 
-dotenv.load_dotenv()
+dotenv.load_dotenv(override=True)
 
 assert os.environ.get("DATABASE_URL"), "POSTGRES_CONNECTION_URL not found in .env file"
 assert os.environ.get(
     "OPENAI_API_KEY"
-), "POSTGRES_CONNECTION_URL not found in .env file"
+), "OPENAI_API_KEY not found in .env file"
 
 DB_URL = os.environ.get("DATABASE_URL")
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
@@ -49,7 +49,7 @@ def main():
             RESPONSE_FORMAT_CAP_REF,
             f"""<explanation of the sql query>
 {SQL_DELIMITER}
-<sql query exclusively as raw text>""",
+sql query exclusively as raw text""",
         )
 
         print("\n\n-------- PROMPT --------")
@@ -59,7 +59,7 @@ def main():
 
         print("\n\n-------- PROMPT RESPONSE --------")
         print(prompt_response)
-
+        
         sql_query = prompt_response.split(SQL_DELIMITER)[1].strip()
 
         print(f"\n\n-------- PARSED SQL QUERY --------")
