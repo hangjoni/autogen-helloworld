@@ -4,14 +4,15 @@ version = "0.1.0"
 description = ""
 authors = ["Joni <hangjoni@gmail.com>"]
 readme = "README.md"
-packages = [{include = "postgres_agent"}]
+packages = [{include = "postgres_da_ai_agent"}]
 
 [tool.poetry.dependencies]
 python = "3.9.18"
-openai = "1.7.1"
 psycopg2-binary = "2.9.9"
 argparse = "1.4.0"
 python-dotenv = "1.0.0"
+openai = "0.28.1"
+pyautogen = "0.1.7"
 
 
 [build-system]
@@ -19,4 +20,4 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-start = "postgres_agent.main:main"
+start = "postgres_da_ai_agent.main:main"
