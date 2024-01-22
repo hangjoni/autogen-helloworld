@@ -3,7 +3,7 @@
 A multi-agents system to chat with database.
 
 Example output for query `"how much did user 101 spend"`
-[example output](./imgs/example_output.png)
+![example output](./imgs/example_output.png)
 
 ## How to run
 
